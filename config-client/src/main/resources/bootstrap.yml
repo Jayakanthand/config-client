@@ -1,0 +1,45 @@
+server:
+  port: 9090
+  
+spring:
+  application:
+    name: config-client
+  profiles: native  
+  cloud:
+    config:
+      name: profile
+      uri: http://localhost:8888/
+      fail-fast: true
+      retry:
+        initial-interval: 8000
+        multiplier: 1.2
+        max-attempts: 15
+        max-interval: 9000
+       
+          
+management:
+  info:
+    git:
+      mode: full
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+        
+#eureka:
+#  client:
+#    fetch-registry: false
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    instance-id: ${random.value}
+#    hostname: localhost.jk.com
+    
+    
+    
+    
